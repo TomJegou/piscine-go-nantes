@@ -6,7 +6,6 @@ import (
 
 func main() {
 	var alphabet string = "abcdefghijklmnopqrstuvwxyz"
-
 	for i := 0; i < 26; i++ {
 		z01.PrintRune(rune(alphabet[i]))
 	}
