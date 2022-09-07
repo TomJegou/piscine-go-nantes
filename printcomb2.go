@@ -19,7 +19,7 @@ func PrintComb2() {
 						z01.PrintRune('\n')
 						break
 					}
-					if left_left_digit < right_left_digit || left_right_digit < right_right_digit {
+					if left_left_digit < right_left_digit && left_right_digit < right_right_digit {
 						z01.PrintRune(rune(ALL_DIGIT[left_left_digit]))
 						z01.PrintRune(rune(ALL_DIGIT[left_right_digit]))
 						z01.PrintRune(32)
