@@ -31,7 +31,7 @@ func PrintComb2() {
 							z01.PrintRune(rune(ALL_DIGIT[left_left_digit]))
 							z01.PrintRune(rune(ALL_DIGIT[left_right_digit]))
 							z01.PrintRune(32)
-							z01.PrintRune(rune(ALL_DIGIT[right_left_digit]))
+							z01.PrintRune(rune(ALL_DIGIT[left_left_digit]))
 							z01.PrintRune(rune(ALL_DIGIT[right_right_digit]))
 							z01.PrintRune(44)
 							z01.PrintRune(32)
