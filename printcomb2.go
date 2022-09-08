@@ -18,8 +18,7 @@ func PrintComb2() {
 						z01.PrintRune(rune(ALL_DIGIT[right_right_digit]))
 						z01.PrintRune('\n')
 						break
-					}
-					if left_left_digit < right_left_digit && left_right_digit < right_right_digit {
+					} else if left_left_digit < right_left_digit {
 						z01.PrintRune(rune(ALL_DIGIT[left_left_digit]))
 						z01.PrintRune(rune(ALL_DIGIT[left_right_digit]))
 						z01.PrintRune(32)
@@ -27,6 +26,18 @@ func PrintComb2() {
 						z01.PrintRune(rune(ALL_DIGIT[right_right_digit]))
 						z01.PrintRune(44)
 						z01.PrintRune(32)
+					} else {
+						if left_right_digit < right_right_digit {
+							z01.PrintRune(rune(ALL_DIGIT[left_left_digit]))
+							z01.PrintRune(rune(ALL_DIGIT[left_right_digit]))
+							z01.PrintRune(32)
+							z01.PrintRune(rune(ALL_DIGIT[right_left_digit]))
+							z01.PrintRune(rune(ALL_DIGIT[right_right_digit]))
+							z01.PrintRune(44)
+							z01.PrintRune(32)
+						} else {
+							continue
+						}
 					}
 				}
 			}
