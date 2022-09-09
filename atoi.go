@@ -1,14 +1,12 @@
 package piscine
 
 func convert_int_to_string_for_atoi(start int, end int, str string) int {
-	count_pow := 0
 	aStringChangeable := []byte(str)
 	var result int
 	for i := start; i >= end; i-- {
 		ascii_digit := int(aStringChangeable[i])
 		if ascii_digit >= 48 && ascii_digit <= 57 {
-			result += (ascii_digit - 48) * pow(10, count_pow)
-			count_pow++
+			result += (ascii_digit - 48) * pow(10, len(str)-1-i)
 		} else {
 			return 0
 		}
