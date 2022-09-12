@@ -9,6 +9,5 @@ func IterativeFactorial(nb int) int {
 	} else {
 		result = 0
 	}
-
 	return result
 }
