@@ -11,7 +11,7 @@ func squart(n int) int {
 func IsPrime(nb int) bool {
 	s := squart(nb)
 	var result bool = true
-	if nb > 0 {
+	if nb > 0 && nb != 1 {
 		for i := 2; i <= s; i++ {
 			if i*i == nb {
 				result = false
