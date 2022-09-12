@@ -34,7 +34,5 @@ func Quick_Sort(t []int) []int {
 
 func SortIntegerTable(table []int) {
 	table_sorted := Quick_Sort(table)
-	for i := 0; i < len(table_sorted); i++ {
-		table[i] = table_sorted[i]
-	}
+	copy(table, table_sorted)
 }
