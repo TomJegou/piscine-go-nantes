@@ -41,6 +41,7 @@ func convert_int_to_string(n int) {
 		z01.PrintRune(rune(all_digit[count_unit]))
 	}
 }
+
 func PrintNbr(n int) {
 	var all_digit string = "0123456789"
 	if n == 0 {
