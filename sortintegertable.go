@@ -17,7 +17,7 @@ func Split(t []int) ([]int, int, []int) {
 	return slice_before, pivot, slice_after
 }
 
-func Merge(s_b []int, p int, s_a []int) []int {
+func Merge1(s_b []int, p int, s_a []int) []int {
 	s_b = append(s_b, p)
 	s_b = append(s_b, s_a...)
 	return s_b
@@ -28,5 +28,5 @@ func SortIntegerTable(table []int) []int {
 		return table
 	}
 	s_1, p, s_2 := Split(table)
-	return Merge(SortIntegerTable(s_1), p, SortIntegerTable(s_2))
+	return Merge1(SortIntegerTable(s_1), p, SortIntegerTable(s_2))
 }
