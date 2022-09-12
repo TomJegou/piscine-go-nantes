@@ -16,13 +16,11 @@ func Split(t []int) ([]int, int, []int) {
 	}
 	return slice_before, pivot, slice_after
 }
-
 func Merge(s_b []int, p int, s_a []int) []int {
 	s_b = append(s_b, p)
 	s_b = append(s_b, s_a...)
 	return s_b
 }
-
 func SortIntegerTable(table []int) []int {
 	if len(table) < 1 {
 		return table

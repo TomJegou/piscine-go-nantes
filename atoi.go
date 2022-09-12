@@ -13,7 +13,6 @@ func convert_int_to_string_for_atoi(start int, end int, str string) int {
 	}
 	return result
 }
-
 func Atoi(s string) int {
 	var result int
 	aStringChangeable := []byte(s)
