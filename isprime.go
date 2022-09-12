@@ -10,6 +10,9 @@ func squart(n int) int {
 
 func IsPrime(nb int) bool {
 	var result bool = true
+	if nb == 2 {
+		return true
+	}
 	if nb > 0 && nb != 1 && nb <= 127 {
 		for i := 2; i <= squart(nb); i++ {
 			if nb%i == 0 {
