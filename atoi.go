@@ -16,18 +16,20 @@ func convert_int_to_string_for_atoi(start int, end int, str string) int {
 
 func Atoi(s string) int {
 	var result int
-	aStringChangeable := []byte(s)
-	if int(aStringChangeable[0]) == 43 || int(aStringChangeable[0]) == 45 {
-		if int(aStringChangeable[1]) >= 48 && int(aStringChangeable[1]) <= 57 {
-			result = convert_int_to_string_for_atoi(len(s)-1, 1, s)
+	if len(s) > 0 {
+		aStringChangeable := []byte(s)
+		if int(aStringChangeable[0]) == 43 || int(aStringChangeable[0]) == 45 {
+			if int(aStringChangeable[1]) >= 48 && int(aStringChangeable[1]) <= 57 {
+				result = convert_int_to_string_for_atoi(len(s)-1, 1, s)
+			} else {
+				return 0
+			}
 		} else {
-			return 0
+			result = convert_int_to_string_for_atoi(len(s)-1, 0, s)
 		}
-	} else {
-		result = convert_int_to_string_for_atoi(len(s)-1, 0, s)
-	}
-	if int(aStringChangeable[0]) == 45 {
-		result *= -1
+		if int(aStringChangeable[0]) == 45 {
+			result *= -1
+		}
 	}
 	return result
 }
