@@ -4,7 +4,6 @@ func pow(m int, n int) int {
 	if n == 0 {
 		return 1
 	}
-
 	result := m
 	for i := 0; i < n-1; i++ {
 		result = result * m
