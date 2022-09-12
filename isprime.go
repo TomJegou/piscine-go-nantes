@@ -12,10 +12,8 @@ func IsPrime(nb int) bool {
 	var result bool = true
 	if nb > 0 && nb != 1 && nb <= 127 {
 		for i := 2; i <= squart(nb); i++ {
-			if i*i == nb {
+			if nb%i == 0 {
 				return false
-			} else {
-				continue
 			}
 		}
 	} else {
