@@ -17,16 +17,24 @@ func Split(t []int) ([]int, int, []int) {
 	return slice_before, pivot, slice_after
 }
 
-func Merge123(s_b []int, p int, s_a []int) []int {
+func Merge(s_b []int, p int, s_a []int) []int {
 	s_b = append(s_b, p)
 	s_b = append(s_b, s_a...)
 	return s_b
 }
 
-func SortIntegerTable(table []int) []int {
-	if len(table) < 1 {
-		return table
+func Quick_Sort(t []int) []int {
+	if len(t) < 1 {
+		return t
 	}
-	s_1, p, s_2 := Split(table)
-	return Merge123(SortIntegerTable(s_1), p, SortIntegerTable(s_2))
+	s_1, p, s_2 := Split(t)
+	a := Merge(Quick_Sort(s_1), p, Quick_Sort(s_2))
+	return a
+}
+
+func SortIntegerTable(table []int) {
+	table_sorted := Quick_Sort(table)
+	for i := 0; i < len(table_sorted); i++ {
+		table[i] = table_sorted[i]
+	}
 }
