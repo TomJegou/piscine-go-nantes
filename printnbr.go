@@ -4,53 +4,52 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func convert_int_to_string(n int) {
-	var all_digit string = "0123456789"
-	var count int = 0
-	var count_hundred int = 0
-	var count_decade int = 0
-	var count_unit int = 0
-	for hundred := 0; hundred < 10; hundred++ {
-		count_hundred = hundred
-		for decade := 0; decade < 10; decade++ {
-			count_decade = decade
-			for unit := 0; unit < 10; unit++ {
-				count_unit = unit
-				count++
-				if count == n {
-					count_unit++
-					break
-				}
-			}
-			if count == n {
-				break
-			}
-		}
-		if count == n {
-			break
-		}
+func Power(nb int, power int) int {
+	if power < 0 {
+		return 0
 	}
-	if count_hundred != 0 {
-		z01.PrintRune(rune(all_digit[count_hundred]))
-		z01.PrintRune(rune(all_digit[count_decade]))
-		z01.PrintRune(rune(all_digit[count_unit]))
-	} else if count_decade != 0 {
-		z01.PrintRune(rune(all_digit[count_decade]))
-		z01.PrintRune(rune(all_digit[count_unit]))
+	if nb == 1 || nb == 0 {
+		return nb
+	} else if power == 0 {
+		return 1
+	}
+	a := Power(nb, power/2)
+	if power%2 == 0 {
+		return a * a
 	} else {
-		z01.PrintRune(rune(all_digit[count_unit]))
+		return a * a * nb
+	}
+}
+
+func convert_int_into_slice(n int) []int {
+	sA := []int{}
+	count := 0
+	for i := 0; n/Power(10, i) >= 9; i++ {
+		count++
+	}
+	for i := count; i >= 0; i-- {
+		sA = append(sA, n/Power(10, i))
+		n -= (n / Power(10, i)) * Power(10, i)
+	}
+	return sA
+}
+
+func convert_slice_to_string(t []int) {
+	for i := 0; i < len(t); i++ {
+		z01.PrintRune(48 + rune(t[i]))
 	}
 }
 
 func PrintNbr(n int) {
-	var all_digit string = "0123456789"
 	if n == 0 {
-		z01.PrintRune(rune(all_digit[0]))
+		z01.PrintRune(48)
 	} else if n > 0 {
-		convert_int_to_string(n)
+		t := convert_int_into_slice(n)
+		convert_slice_to_string(t)
 	} else {
 		z01.PrintRune(45)
 		z := n * -1
-		convert_int_to_string(z)
+		t := convert_int_into_slice(z)
+		convert_slice_to_string(t)
 	}
 }
