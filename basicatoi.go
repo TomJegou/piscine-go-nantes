@@ -11,7 +11,6 @@ func pow(m int, n int) int {
 	}
 	return result
 }
-
 func BasicAtoi(s string) int {
 	var result int
 	aStringChangeable := []byte(s)
