@@ -3,7 +3,7 @@ package piscine
 func Index(s string, toFind string) int {
 	result := -1
 	count := 0
-	if len(toFind) <= len(s) {
+	if len(toFind) <= len(s) && len(toFind) > 0 {
 		for j := 0; j < len(s)-len(toFind); j++ {
 			if s[j] == toFind[0] {
 				result = j
