@@ -13,7 +13,11 @@ func Compare(a, b string) int {
 			len_min = len(b)
 		}
 		for i := 0; i < len_min; i++ {
-			if int(a_s[i]) < int(b_s[i]) {
+			if int(a_s[i]) > int(b_s[i]) {
+				return 1
+			} else if int(a_s[i]) == int(b_s[i]) {
+				continue
+			} else {
 				return -1
 			}
 		}
