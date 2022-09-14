@@ -31,7 +31,6 @@ func isLetter(s string) bool {
 		} else {
 			return false
 		}
-
 	}
 	return result
 }
