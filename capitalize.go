@@ -41,7 +41,6 @@ func is_alpha(s string) bool {
 		} else {
 			return false
 		}
-
 	}
 	return result
 }
