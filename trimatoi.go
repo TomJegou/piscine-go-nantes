@@ -56,5 +56,8 @@ func convert_to_int_for_trimatoi(t []byte, signe bool) int {
 }
 
 func TrimAtoi(s string) int {
-	return convert_to_int_for_trimatoi(convert_to_slice_for_trimatoi(s))
+	if len(s) > 0 {
+		return convert_to_int_for_trimatoi(convert_to_slice_for_trimatoi(s))
+	}
+	return 0
 }
