@@ -27,13 +27,15 @@ func isnumForTrimAtoi(s string) bool {
 	return true
 }
 
-func convert_to_slice(s string) ([]byte, bool) {
+func convert_to_slice_for_trimatoi(s string) ([]byte, bool) {
 	result := []byte{}
 	positiv := true
-	for i := 0; i < len(s); i++ {
+	for i := 0; !isnumForTrimAtoi(string(s[i])) && i < len(s)-1; i++ {
 		if string(s[i]) == "-" {
 			positiv = false
 		}
+	}
+	for i := 0; i < len(s); i++ {
 		if isnumForTrimAtoi(string(s[i])) {
 			result = append(result, byte(s[i])-48)
 		}
@@ -41,7 +43,7 @@ func convert_to_slice(s string) ([]byte, bool) {
 	return result, positiv
 }
 
-func convert_to_int(t []byte, signe bool) int {
+func convert_to_int_for_trimatoi(t []byte, signe bool) int {
 	result := 0
 	for i := len(t) - 1; i >= 0; i-- {
 		result += int(t[i]) * PowerForTrimAtoi(10, len(t)-1-i)
@@ -54,5 +56,5 @@ func convert_to_int(t []byte, signe bool) int {
 }
 
 func TrimAtoi(s string) int {
-	return convert_to_int(convert_to_slice(s))
+	return convert_to_int_for_trimatoi(convert_to_slice_for_trimatoi(s))
 }
