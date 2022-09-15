@@ -1,4 +1,10 @@
-package piscine
+package main
+
+import (
+	"os"
+
+	"github.com/01-edu/z01"
+)
 
 func Split(t []rune) ([]rune, rune, []rune) {
 	var index_middle int = len(t) / 2
@@ -34,4 +40,18 @@ func Quick_Sort(t []rune) []rune {
 
 func SortRune(table []rune) {
 	copy(table, Quick_Sort(table))
+}
+
+func main() {
+	t := os.Args[1:]
+	s := []rune{}
+	for i := 0; i < len(t); i++ {
+		l := []rune(t[i])
+		s = append(s, l...)
+	}
+	SortRune(s)
+	for i := 0; i < len(s); i++ {
+		z01.PrintRune(rune(s[i]))
+		z01.PrintRune('\n')
+	}
 }
