@@ -32,13 +32,15 @@ func display(slice []int, str string) {
 }
 
 func check_base(str string) bool {
-	slice := []byte(str)
+	if len(str) <= 0 {
+		return false
+	}
 	for i := 0; i < len(str)-1; i++ {
-		if int(slice[i]) == 45 || int(slice[i]) == 43 {
+		if str[i] == 45 || str[i] == 43 {
 			return false
 		}
 		for j := len(str) - 1; j > i; j-- {
-			if int(slice[j]) == int(slice[i]) || int(slice[i]) == 45 || int(slice[i]) == 43 {
+			if str[j] == str[i] || str[j] == 45 || str[j] == 43 {
 				return false
 			}
 		}
