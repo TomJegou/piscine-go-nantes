@@ -2,32 +2,36 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func switch_int(a int, b int, t []int) {
+func switch_strfornbrbase(a int, b int, t []byte) {
 	c := t[a]
 	t[a] = t[b]
 	t[b] = c
 }
 
-func reverse(slice_to_reverse []int) {
-	j := len(slice_to_reverse) - 1
+func reverse_slice_byte_fornbrbase(t []byte) {
+	j := len(t) - 1
 	for i := 0; i < j; i++ {
-		switch_int(i, j, slice_to_reverse)
+		switch_strfornbrbase(i, j, t)
 		j--
 	}
 }
 
-func preprocessing_nbr(nbr int, base int) []int {
-	result := []int{}
-	for i := 0; nbr > 0; i++ {
-		result = append(result, nbr%base)
+func preprocessing_nbr(nbr int, base int) []byte {
+	result := []byte{}
+	for i := 0; nbr != 0; i++ {
+		a := nbr % base
+		if a < 0 {
+			a *= -1
+		}
+		result = append(result, byte(a))
 		nbr /= base
 	}
 	return result
 }
 
-func display(slice []int, str string) {
-	for i := 0; i < len(slice); i++ {
-		z01.PrintRune(rune(str[slice[i]]))
+func display(t []byte) {
+	for i := 0; i < len(t); i++ {
+		z01.PrintRune(48 + rune(t[i]))
 	}
 }
 
@@ -52,11 +56,10 @@ func PrintNbrBase(nbr int, base string) {
 	if check_base(base) {
 		if nbr < 0 {
 			z01.PrintRune(45)
-			nbr *= -1
 		}
 		z := preprocessing_nbr(nbr, len(base))
-		reverse(z)
-		display(z, base)
+		reverse_slice_byte_fornbrbase(z)
+		display(z)
 	} else {
 		z01.PrintRune(78)
 		z01.PrintRune(86)
