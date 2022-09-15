@@ -7,8 +7,8 @@ import (
 )
 
 func main() {
-	t := os.Args[:1]
-	for i := 0; i < len(t); i++ {
+	t := os.Args
+	for i := 1; i < len(t); i++ {
 		z := []rune(t[i])
 		for j := 0; j < len(z); j++ {
 			z01.PrintRune(rune(t[i][j]))
