@@ -32,7 +32,7 @@ func display(slice []int, str string) {
 }
 
 func check_base(str string) bool {
-	if len(str) <= 2 {
+	if len(str) < 2 {
 		return false
 	}
 	for i := 0; i < len(str)-1; i++ {
