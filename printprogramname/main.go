@@ -7,8 +7,9 @@ import (
 )
 
 func main() {
-	for i := 0; i < len(os.Args[0][2:]); i++ {
-		z01.PrintRune(rune(os.Args[0][2:][i]))
+	name_slice := []byte(os.Args[0][2:])
+	for i := 0; i < len(name_slice); i++ {
+		z01.PrintRune(rune(name_slice[i]))
 	}
 	z01.PrintRune('\n')
 }
