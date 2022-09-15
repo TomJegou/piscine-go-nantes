@@ -56,6 +56,9 @@ func PrintNbrBase(nbr int, base string) {
 	if check_base(base) {
 		if nbr < 0 {
 			z01.PrintRune(45)
+		} else if nbr == 0 {
+			z := []byte{0}
+			display(z, base)
 		}
 		z := preprocessing_nbr(nbr, len(base))
 		reverse_slice_byte_forprintnbrbase(z)
