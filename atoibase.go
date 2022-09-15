@@ -17,16 +17,16 @@ func powforAtoibase(nb int, power int) int {
 	}
 }
 
-func switch_str(a int, b int, t []byte) {
+func switch_str_for_atoibase(a int, b int, t []byte) {
 	c := t[a]
 	t[a] = t[b]
 	t[b] = c
 }
 
-func reverse_slice_byte(t []byte) {
+func reverse_slice_byte_for_atoibase(t []byte) {
 	j := len(t) - 1
 	for i := 0; i < j; i++ {
-		switch_str(i, j, t)
+		switch_str_for_atoibase(i, j, t)
 		j--
 	}
 }
@@ -78,7 +78,7 @@ func AtoiBase(s string, base string) int {
 	if validity_check(s, base) {
 		result := 0
 		slice_string := []byte(s)
-		reverse_slice_byte(slice_string)
+		reverse_slice_byte_for_atoibase(slice_string)
 		for i := 0; i < len(slice_string); i++ {
 			result += powforAtoibase(len(base), i) * found_index(slice_string[i], base)
 		}
