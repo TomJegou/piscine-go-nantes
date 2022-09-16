@@ -53,8 +53,9 @@ func convertint_to_alpha(t []string, upper bool) {
 		if Atoi(t[i]) > 0 && Atoi(t[i]) <= 26 {
 			if upper {
 				z01.PrintRune(rune(Atoi(t[i])) - 1 + 65)
+			} else {
+				z01.PrintRune(rune(Atoi(t[i])) - 1 + 97)
 			}
-			z01.PrintRune(rune(Atoi(t[i])) - 1 + 97)
 		} else {
 			z01.PrintRune(32)
 		}
