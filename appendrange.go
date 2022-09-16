@@ -6,6 +6,8 @@ func AppendRange(min, max int) []int {
 		for i := min; i < max; i++ {
 			result = append(result, i)
 		}
+	} else {
+		return []int(nil)
 	}
 	return result
 }
