@@ -66,9 +66,11 @@ func convertint_to_alpha(t []string, upper bool) {
 func main() {
 	if len(os.Args) > 1 {
 		upper := false
+		start := 1
 		if os.Args[1] == "--upper" {
 			upper = true
+			start = 2
 		}
-		convertint_to_alpha(os.Args, upper)
+		convertint_to_alpha(os.Args[start:], upper)
 	}
 }
