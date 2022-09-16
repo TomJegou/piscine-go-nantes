@@ -50,12 +50,11 @@ func Atoi(s string) int {
 
 func convertint_to_alpha(t []string, upper bool) {
 	for i := 0; i < len(t); i++ {
-		if t[i] > "0" && t[i] <= "26" {
+		if Atoi(t[i]) > 0 && Atoi(t[i]) <= 26 {
 			if upper {
 				z01.PrintRune(rune(Atoi(t[i])) - 1 + 65)
-			} else {
-				z01.PrintRune(rune(Atoi(t[i])) - 1 + 97)
 			}
+			z01.PrintRune(rune(Atoi(t[i])) - 1 + 97)
 		} else {
 			z01.PrintRune(32)
 		}
@@ -64,11 +63,11 @@ func convertint_to_alpha(t []string, upper bool) {
 }
 
 func main() {
-	upper := false
-	start := 1
-	if os.Args[1] == "--upper" {
-		upper = true
-		start = 2
+	if len(os.Args) > 1 {
+		upper := false
+		if os.Args[1] == "--upper" {
+			upper = true
+		}
+		convertint_to_alpha(os.Args, upper)
 	}
-	convertint_to_alpha(os.Args[start:], upper)
 }
