@@ -15,7 +15,9 @@ func _split_custom(s string, t string) []string {
 			string_temp += string(s[i])
 		}
 	}
-	result = append(result, string_temp)
+	if len(string_temp) > 0 {
+		result = append(result, string_temp)
+	}
 	return result
 }
 
