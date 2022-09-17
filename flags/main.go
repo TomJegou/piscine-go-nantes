@@ -3,10 +3,26 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
 
 	"github.com/01-edu/z01"
 )
+
+func _split_custom(s string, t string) []string {
+	string_temp := ""
+	result := []string{}
+	for i := 0; i < len(s); i++ {
+		if string(s[i]) == t {
+			result = append(result, string_temp)
+			string_temp = ""
+			s = s[:i] + s[i+1:]
+			i -= 1
+		} else {
+			string_temp += string(s[i])
+		}
+	}
+	result = append(result, string_temp)
+	return result
+}
 
 func switch_in_string_slice(i1 int, i2 int, t []byte) {
 	c := t[i1]
@@ -59,7 +75,6 @@ func _insert_(s string, s_to_insert string) string {
 
 func main() {
 	arguments := os.Args[1:]
-	fmt.Println(arguments)
 	if len(arguments) == 0 || arguments[0] == "--help" || arguments[0] == "-h" {
 		display_manual()
 	} else {
@@ -77,7 +92,7 @@ func main() {
 				search_insert = false
 			} else if search_insert {
 				insert = true
-				s_to_insert = strings.Split(arguments[i], "=")[1]
+				s_to_insert = _split_custom(arguments[i], "=")[1]
 			}
 		}
 		if order && !insert {
