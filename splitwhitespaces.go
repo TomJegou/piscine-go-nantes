@@ -8,7 +8,7 @@ func _split_custom(s string, t string) []string {
 			result = append(result, string_temp)
 			string_temp = ""
 			s = s[:i] + s[i+1:]
-			i -= 1
+			i -= 2
 		} else {
 			string_temp += string(s[i])
 		}
