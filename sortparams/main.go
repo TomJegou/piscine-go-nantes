@@ -14,7 +14,7 @@ func switch_in_string_slice(i1 int, i2 int, t []string) {
 
 func selection_sort(t []string) {
 	end := len(t) - 1
-	for i := 0; i <= end; i++ {
+	for i := 0; i < len(t); i++ {
 		biggest := t[0]
 		counter := 0
 		for j := 0; j <= end; j++ {
