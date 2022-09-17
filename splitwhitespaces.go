@@ -5,8 +5,10 @@ func _split_custom(s string, t string) []string {
 	result := []string{}
 	for i := 0; i < len(s); i++ {
 		if string(s[i]) == t {
-			result = append(result, string_temp)
-			string_temp = ""
+			if len(string_temp) > 0 {
+				result = append(result, string_temp)
+				string_temp = ""
+			}
 			s = s[:i] + s[i+1:]
 			i -= 1
 		} else {
