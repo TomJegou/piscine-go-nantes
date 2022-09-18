@@ -12,7 +12,7 @@ func Split(s string, t string) []string {
 		}
 		if counter == len(t) {
 			if len(string_temp) > 0 {
-				result = append(result, string_temp[:len(string_temp)-1])
+				result = append(result, string_temp[:len(string_temp)-(len(t)-1)])
 				string_temp = ""
 				s = s[:i-len(t)] + s[i:]
 				i -= len(t)
