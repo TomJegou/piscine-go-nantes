@@ -1,6 +1,6 @@
 package piscine
 
-func Split(t []int) ([]int, int, []int) {
+func Split_for_sort(t []int) ([]int, int, []int) {
 	var index_middle int = len(t) / 2
 	pivot := t[index_middle]
 	slice := t[:index_middle]
@@ -27,7 +27,7 @@ func Quick_Sort(t []int) []int {
 	if len(t) < 1 {
 		return t
 	}
-	s_1, p, s_2 := Split(t)
+	s_1, p, s_2 := Split_for_sort(t)
 	a := Merge(Quick_Sort(s_1), p, Quick_Sort(s_2))
 	return a
 }
