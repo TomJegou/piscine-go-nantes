@@ -20,8 +20,9 @@ func main() {
 	for i := 0; i < len(arguments); i++ {
 		data, err := os.ReadFile(arguments[i])
 		if err != nil {
-			fmt.Println("ERROR: abc: No such file or directory")
+			fmt.Println(err)
+		} else {
+			fmt.Println(string(data))
 		}
-		fmt.Println(string(data))
 	}
 }
