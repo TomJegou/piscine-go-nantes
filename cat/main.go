@@ -8,13 +8,15 @@ import (
 
 func loop_hello_for_cat() {
 	message := "Hello"
-	keep := true
-	for i := 0; keep; i++ {
+	for i := 0; i < 2; i++ {
 		for j := 0; j < len(message); j++ {
 			z01.PrintRune(rune(message[j]))
 		}
 		z01.PrintRune('\n')
 	}
+	z01.PrintRune(rune('^'))
+	z01.PrintRune(rune('C'))
+	z01.PrintRune('\n')
 }
 
 func display(t []byte) {
