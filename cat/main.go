@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"os"
 
 	"github.com/01-edu/z01"
@@ -32,7 +31,7 @@ func main() {
 	for i := 0; i < len(arguments); i++ {
 		data, err := os.ReadFile(arguments[i])
 		if err != nil {
-			log.Fatal(err)
+			display([]byte("ERROR: " + err.Error() + " exit status 1"))
 		} else {
 			display(data)
 		}
