@@ -31,7 +31,7 @@ func main() {
 	for i := 0; i < len(arguments); i++ {
 		data, err := os.ReadFile(arguments[i])
 		if err != nil {
-			display([]byte(err.Error()))
+			display([]byte("ERROR: " + err.Error()))
 		} else {
 			display(data)
 		}
