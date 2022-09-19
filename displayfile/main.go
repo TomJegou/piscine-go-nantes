@@ -13,6 +13,6 @@ func main() {
 		fmt.Println("Too many arguments")
 	} else {
 		data, _ := os.ReadFile(arguments[0])
-		fmt.Println(string(data))
+		fmt.Print(string(data))
 	}
 }
