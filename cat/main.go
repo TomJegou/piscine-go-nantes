@@ -32,7 +32,7 @@ func main() {
 		data, err := os.ReadFile(arguments[i])
 		if err != nil {
 			display([]byte("ERROR: " + err.Error()))
-			os.Exit(0)
+			os.Exit(1)
 		} else {
 			display(data)
 		}
