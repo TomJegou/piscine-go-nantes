@@ -23,13 +23,6 @@ func display(t []byte) {
 	}
 }
 
-func display_error(filename string) {
-	message := "ERROR: open " + filename + ": no such file or directory" + "\nexit status 1"
-	for i := 0; i < len(message); i++ {
-		z01.PrintRune(rune(message[i]))
-	}
-}
-
 func main() {
 	arguments := os.Args[1:]
 	if len(arguments) == 0 {
@@ -38,7 +31,7 @@ func main() {
 	for i := 0; i < len(arguments); i++ {
 		data, err := os.ReadFile(arguments[i])
 		if err != nil {
-			display_error(string(arguments[i]))
+			display([]byte(err.Error()))
 		} else {
 			display(data)
 		}
