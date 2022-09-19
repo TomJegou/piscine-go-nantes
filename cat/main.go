@@ -1,14 +1,33 @@
 package main
 
 import (
-	"fmt"
 	"os"
+
+	"github.com/01-edu/z01"
 )
 
 func loop_hello_for_cat() {
+	message := "Hello"
 	keep := true
 	for i := 0; keep; i++ {
-		fmt.Println("Hello")
+		for j := 0; j < len(message); j++ {
+			z01.PrintRune(rune(message[j]))
+		}
+		z01.PrintRune('\n')
+	}
+}
+
+func display(t []byte) {
+	for i := 0; i < len(t); i++ {
+		z01.PrintRune(rune(t[i]))
+	}
+	z01.PrintRune('\n')
+}
+
+func display_error(filename string) {
+	message := "ERROR: open " + filename + ": no such file or directory"
+	for i := 0; i < len(message); i++ {
+		z01.PrintRune(rune(message[i]))
 	}
 }
 
@@ -20,9 +39,9 @@ func main() {
 	for i := 0; i < len(arguments); i++ {
 		data, err := os.ReadFile(arguments[i])
 		if err != nil {
-			fmt.Println(err)
+			display_error(string(arguments[i]))
 		} else {
-			fmt.Println(string(data))
+			display(data)
 		}
 	}
 }
