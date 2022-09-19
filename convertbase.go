@@ -26,6 +26,5 @@ func PrintNbrBase_forconvertbase(nbr int, base string) string {
 }
 
 func ConvertBase(nbr, baseFrom, baseTo string) string {
-	number := AtoiBase(nbr, baseFrom)
-	return PrintNbrBase_forconvertbase(number, baseTo)
+	return PrintNbrBase_forconvertbase(AtoiBase(nbr, baseFrom), baseTo)
 }
