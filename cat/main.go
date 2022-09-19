@@ -21,7 +21,6 @@ func display(t []byte) {
 	for i := 0; i < len(t); i++ {
 		z01.PrintRune(rune(t[i]))
 	}
-	z01.PrintRune('\n')
 }
 
 func display_error(filename string) {
