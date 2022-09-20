@@ -31,18 +31,18 @@ func switch_in_string_slice(i1 int, i2 int, t []byte) {
 }
 
 func selection_sort(t []byte) {
-	end := len(t) - 1
+	n := len(t)
 	for i := 0; i < len(t); i++ {
-		biggest := int(t[0])
-		counter := 0
-		for j := 0; j <= end; j++ {
-			if int(t[j]) > biggest {
-				biggest = int(t[j])
-				counter = j
+		v := 0
+		x := t[v]
+		for j := 0; j < n; j++ {
+			if t[j] > x {
+				x = t[j]
+				v = j
 			}
 		}
-		switch_in_string_slice(counter, end, t)
-		end -= 1
+		switch_in_string_slice(v, n-1, t)
+		n--
 	}
 }
 
