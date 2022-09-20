@@ -1,17 +1,16 @@
 package main
 
 import (
-	"bufio"
+	"io"
 	"os"
 
 	"github.com/01-edu/z01"
 )
 
 func console_scanner_for_cat() {
-	consolescanner := bufio.NewScanner(os.Stdin)
-	for consolescanner.Scan() {
-		input := consolescanner.Text()
-		display([]byte(input))
+	_, e := io.Copy(os.Stdout, os.Stdin)
+	if e != nil {
+		panic(e)
 	}
 }
 
