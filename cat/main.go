@@ -1,22 +1,18 @@
 package main
 
 import (
+	"bufio"
 	"os"
 
 	"github.com/01-edu/z01"
 )
 
-func loop_hello_for_cat() {
-	message := "Hello"
-	for i := 0; i < 2; i++ {
-		for j := 0; j < len(message); j++ {
-			z01.PrintRune(rune(message[j]))
-		}
-		z01.PrintRune('\n')
+func console_scanner_for_cat() {
+	consolescanner := bufio.NewScanner(os.Stdin)
+	for consolescanner.Scan() {
+		input := consolescanner.Text()
+		display([]byte(input))
 	}
-	z01.PrintRune(rune('^'))
-	z01.PrintRune(rune('C'))
-	z01.PrintRune('\n')
 }
 
 func display(t []byte) {
@@ -28,7 +24,7 @@ func display(t []byte) {
 func main() {
 	arguments := os.Args[1:]
 	if len(arguments) == 0 {
-		loop_hello_for_cat()
+		console_scanner_for_cat()
 	}
 	for i := 0; i < len(arguments); i++ {
 		data, err := os.ReadFile(arguments[i])
