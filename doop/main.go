@@ -69,7 +69,7 @@ func printNbr(n int) string {
 func main() {
 	if len(os.Args[1:]) == 3 {
 		if validity(os.Args[1:][0]) && validity(os.Args[1:][2]) {
-			if os.Args[1:][0] != "9223372036854775807" && os.Args[1:][0] != "-9223372036854775809" && os.Args[1:][2] != "9223372036854775807" && os.Args[1:][2] != "-9223372036854775809" {
+			if os.Args[1:][0] != "9223372036854775809" && os.Args[1:][0] != "-9223372036854775809" && os.Args[1:][2] != "9223372036854775809" && os.Args[1:][2] != "-9223372036854775809" {
 				sign := os.Args[1:][1]
 				if sign == "+" || sign == "-" || sign == "*" || sign == "/" || sign == "%" {
 					if sign == "+" {
