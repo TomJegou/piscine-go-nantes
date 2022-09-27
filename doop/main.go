@@ -36,6 +36,9 @@ func display(s string) {
 }
 
 func printNbr(n int) string {
+	if n == 0 {
+		return "0"
+	}
 	all_figit := "0123456789"
 	result := ""
 	negative := false
