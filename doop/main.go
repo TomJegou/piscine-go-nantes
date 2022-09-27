@@ -4,6 +4,16 @@ import (
 	"os"
 )
 
+func validity(s string) bool {
+	slice := []byte(s)
+	for i := 0; i < len(slice); i++ {
+		if slice[i] < 48 || slice[i] > 57 {
+			return false
+		}
+	}
+	return true
+}
+
 func pow(n int, m int) int {
 	if n == 1 || m == 1 {
 		return n
@@ -57,26 +67,28 @@ func printNbr(n int) string {
 }
 
 func main() {
-	if os.Args[1:][0] != "9223372036854775807" && os.Args[1:][0] != "-9223372036854775809" && os.Args[1:][2] != "9223372036854775807" && os.Args[1:][2] != "-9223372036854775809" {
-		sign := os.Args[1:][1]
-		if sign == "+" || sign == "-" || sign == "*" || sign == "/" || sign == "%" {
-			if sign == "+" {
-				display(printNbr(atoi(os.Args[1:][0])+atoi(os.Args[1:][2])) + "\n")
-			} else if sign == "-" {
-				display(printNbr(atoi(os.Args[1:][0])-atoi(os.Args[1:][2])) + "\n")
-			} else if sign == "*" {
-				display(printNbr(atoi(os.Args[1:][0])*atoi(os.Args[1:][2])) + "\n")
-			} else if sign == "/" {
-				if os.Args[1:][2] == "0" {
-					display("No division by 0")
-				} else {
-					display(printNbr(atoi(os.Args[1:][0])/atoi(os.Args[1:][2])) + "\n")
-				}
-			} else if sign == "%" {
-				if os.Args[1:][2] == "0" {
-					display("No modulo by 0")
-				} else {
-					display(printNbr(atoi(os.Args[1:][0])%atoi(os.Args[1:][2])) + "\n")
+	if validity(os.Args[1:][0]) && validity(os.Args[1:][2]) {
+		if os.Args[1:][0] != "9223372036854775807" && os.Args[1:][0] != "-9223372036854775809" && os.Args[1:][2] != "9223372036854775807" && os.Args[1:][2] != "-9223372036854775809" {
+			sign := os.Args[1:][1]
+			if sign == "+" || sign == "-" || sign == "*" || sign == "/" || sign == "%" {
+				if sign == "+" {
+					display(printNbr(atoi(os.Args[1:][0])+atoi(os.Args[1:][2])) + "\n")
+				} else if sign == "-" {
+					display(printNbr(atoi(os.Args[1:][0])-atoi(os.Args[1:][2])) + "\n")
+				} else if sign == "*" {
+					display(printNbr(atoi(os.Args[1:][0])*atoi(os.Args[1:][2])) + "\n")
+				} else if sign == "/" {
+					if os.Args[1:][2] == "0" {
+						display("No division by 0")
+					} else {
+						display(printNbr(atoi(os.Args[1:][0])/atoi(os.Args[1:][2])) + "\n")
+					}
+				} else if sign == "%" {
+					if os.Args[1:][2] == "0" {
+						display("No modulo by 0")
+					} else {
+						display(printNbr(atoi(os.Args[1:][0])%atoi(os.Args[1:][2])) + "\n")
+					}
 				}
 			}
 		}
