@@ -35,7 +35,7 @@ func atoi(s string) int {
 
 func display(s string) {
 	path, _ := os.Getwd()
-	os.WriteFile(path+"test.txt", []byte(s), 0666)
+	os.WriteFile(path+"test.txt", []byte(s), 0o666)
 	data, _ := os.ReadFile(path + "test.txt")
 	a := strings.NewReader(string(data) + "\n")
 	io.Copy(os.Stdout, a)
