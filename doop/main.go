@@ -1,11 +1,9 @@
 package main
 
 import (
-	"fmt"
-	"strconv"
+	"github.com/01-edu/z01"
 )
 
 func main() {
-	a, _ := strconv.Atoi(("-46"))
-	fmt.Println(a)
+	z01.PrintRune(45)
 }
