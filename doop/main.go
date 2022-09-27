@@ -79,13 +79,13 @@ func main() {
 					display(printNbr(atoi(os.Args[1:][0])*atoi(os.Args[1:][2])) + "\n")
 				} else if sign == "/" {
 					if os.Args[1:][2] == "0" {
-						display("No division by 0")
+						display("No division by 0\n")
 					} else {
 						display(printNbr(atoi(os.Args[1:][0])/atoi(os.Args[1:][2])) + "\n")
 					}
 				} else if sign == "%" {
 					if os.Args[1:][2] == "0" {
-						display("No modulo by 0")
+						display("No modulo by 0\n")
 					} else {
 						display(printNbr(atoi(os.Args[1:][0])%atoi(os.Args[1:][2])) + "\n")
 					}
