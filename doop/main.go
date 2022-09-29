@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 )
 
@@ -73,13 +72,26 @@ func printNbr(n int) string {
 	return result
 }
 
+func overflow_validity(n1 int, n2 int) bool {
+	result := true
+	if n1 < 0 && n2 < 0 {
+		smallest := n1
+		if n2 < n1 {
+			smallest := n2
+		a := -9223372036854775808 - smallest
+	}
+	return result
+}
+
 func main() {
 	if len(os.Args[1:]) == 3 {
-		first_number := os.Args[1:][0]
-		second_number := os.Args[1:][2]
-		sign := os.Args[1:][1]
-		fmt.Println(validity_number(first_number))
-		fmt.Println(validity_number(second_number))
-		fmt.Println(validity_sign(sign))
+		if validity_number(os.Args[1:][0]) && validity_number(os.Args[1:][2]) && validity_sign(os.Args[1:][1]) {
+			first_number := atoi(os.Args[1:][0])
+			second_number := atoi(os.Args[1:][2])
+			sign := os.Args[1:][1]
+			if overflow_validity(first_number, second_number) {
+
+			}
+		}
 	}
 }

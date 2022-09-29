@@ -1,11 +1,12 @@
 package main
 
-import (
-	"fmt"
-	"piscine"
-)
+import "fmt"
 
 func main() {
-	result := piscine.ConvertBase("101011", "01", "0123456789")
-	fmt.Println(result)
+	a := -9223372036854775808
+	b := -2
+	fmt.Println(b)
+	fmt.Println(a)
+	c := a - b
+	fmt.Println(c)
 }
