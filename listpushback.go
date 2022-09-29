@@ -15,7 +15,8 @@ func ListPushBack(l *List, data interface{}) {
 	if l.Head == nil {
 		l.Head = a
 		l.Tail = a
+	} else {
+		l.Tail.Next = a
+		l.Tail = l.Tail.Next
 	}
-	l.Tail.Next = a
-	l.Tail = l.Tail.Next
 }

@@ -8,4 +8,5 @@ func ListReverse(l *List) {
 		current_node = current_node.Next
 	}
 	l.Head = l_temp.Head
+	l.Tail = l_temp.Tail
 }
