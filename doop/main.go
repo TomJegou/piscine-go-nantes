@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 )
 
@@ -77,8 +78,17 @@ func overflow_validity(n1 int, n2 int) bool {
 	if n1 < 0 && n2 < 0 {
 		smallest := n1
 		if n2 < n1 {
-			smallest := n2
+			smallest = n2
+			a := -9223372036854775808 - smallest
+			if n1 <= a {
+				return false
+			}
+		}
 		a := -9223372036854775808 - smallest
+		if n2 <= a {
+			return false
+		}
+
 	}
 	return result
 }
@@ -90,7 +100,7 @@ func main() {
 			second_number := atoi(os.Args[1:][2])
 			sign := os.Args[1:][1]
 			if overflow_validity(first_number, second_number) {
-
+				fmt.Println("Overflow")
 			}
 		}
 	}
