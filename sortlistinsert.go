@@ -7,7 +7,7 @@ func SortListInsert(l *NodeI, data_ref int) *NodeI {
 		return n
 	}
 	current_node := l
-	for current_node != nil {
+	for current_node.Next != nil {
 		if current_node.Next.Data >= n.Data {
 			n.Next = current_node.Next
 			current_node.Next = n
@@ -15,5 +15,6 @@ func SortListInsert(l *NodeI, data_ref int) *NodeI {
 		}
 		current_node = current_node.Next
 	}
+	current_node.Next = n
 	return l
 }
