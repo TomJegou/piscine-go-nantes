@@ -91,7 +91,18 @@ func overflow_validity(n1 int, n2 int) bool {
 
 	}
 	if n1 > 0 && n2 > 0 {
-
+		biggest := n1
+		if n2 > n1 {
+			biggest = n2
+			a := 9223372036854775807 - biggest
+			if n1 >= a {
+				return false
+			}
+		}
+		a := 9223372036854775807 - biggest
+		if n2 >= a {
+			return false
+		}
 	}
 	return result
 }
@@ -101,8 +112,10 @@ func main() {
 		if validity_number(os.Args[1:][0]) && validity_number(os.Args[1:][2]) && validity_sign(os.Args[1:][1]) {
 			first_number := atoi(os.Args[1:][0])
 			second_number := atoi(os.Args[1:][2])
-			sign := os.Args[1:][1]
+			//sign := os.Args[1:][1]
 			if overflow_validity(first_number, second_number) {
+				fmt.Println("Not Overflow")
+			} else {
 				fmt.Println("Overflow")
 			}
 		}
