@@ -19,4 +19,4 @@ func BTreeIsBinary(root *TreeNode) bool {
 		}
 	}
 	return true
-}
+} //test
