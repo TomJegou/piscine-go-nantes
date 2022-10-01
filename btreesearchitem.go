@@ -1,6 +1,9 @@
 package piscine
 
 func BTreeSearchItem(root *TreeNode, elem string) *TreeNode {
+	if root == nil {
+		return nil
+	}
 	if root.Data == elem {
 		return root
 	}
