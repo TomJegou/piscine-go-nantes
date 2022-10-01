@@ -1,12 +1,18 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"piscine"
+)
 
 func main() {
-	a := -9223372036854775808
-	b := -2
-	fmt.Println(b)
-	fmt.Println(a)
-	c := a - b
-	fmt.Println(c)
+	root := &piscine.TreeNode{Data: "4"}
+	piscine.BTreeInsertData(root, "1")
+	piscine.BTreeInsertData(root, "7")
+	piscine.BTreeInsertData(root, "5")
+	fmt.Println(root.Left.Data)
+	fmt.Println(root.Data)
+	fmt.Println(root.Right.Left.Data)
+	fmt.Println(root.Right.Data)
+
 }
