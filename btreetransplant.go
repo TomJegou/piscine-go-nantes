@@ -14,6 +14,8 @@ func BTreeTransplant(root, node, rplc *TreeNode) *TreeNode {
 				}
 			}
 		}
+		current_node.Left = rplc.Left
+		current_node.Right = rplc.Right
 		current_node.Data = rplc.Data
 	}
 	return root
