@@ -13,7 +13,7 @@ func apply_func_lvl(root *TreeNode, levl int, f func(...interface{}) (int, error
 }
 
 func BTreeApplyByLevel(root *TreeNode, f func(...interface{}) (int, error)) {
-	for n := 1; n < BTreeLevelCount(root)+1; n++ {
+	for n := 1; n <= BTreeLevelCount(root); n++ {
 		apply_func_lvl(root, n, f)
 	}
 }
