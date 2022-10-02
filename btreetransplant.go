@@ -11,6 +11,6 @@ func BTreeTransplant(root, node, rplc *TreeNode) *TreeNode {
 			root = root.Left
 		}
 	}
-	root.Data = rplc.Data
+	root = rplc
 	return root
 }
